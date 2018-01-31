@@ -1,4 +1,6 @@
-# Vue.js Workshop
+# [Vue.js Workshop](https://github.com/maxpou-slides/vue-workshop)
+
+[![Build Status](https://travis-ci.org/maxpou-slides/vue-workshop.svg?branch=master)](https://travis-ci.org/maxpou-slides/vue-workshop)
 
 In a nutshell: Vue.js (pronounced “view”) could be the 'V' in an MV* pattern. The reason why this framework is gaining popularity the last years is his straightforward syntax. Such as React, Vue.js is oriented component but with a far lower barrier of entry (don't need to learn JSX). Indeed, Vue's syntax will probably look familiar to anyone who has worked with Angular/Mustache in the past.
 
@@ -6,11 +8,11 @@ For this workshop we will learn about Vue.js. Don't worry if you are a beginner,
 
 ## Links
 
-* Slides: TODO / (source: TODO)
+* [Slides](http://slides.maxpou.fr/vue-workshop/) (source: TODO)
 * Workshop
-  * Instructions: TODO
-  * Workshop app repository: TODO
-  * Workshop final app: TODO
+  * [Instructions ()](http://slides.maxpou.fr/vue-workshop/_book/)
+  * [Workshop app repository (github.com/maxpou-slides/vue-workshop-app)](https://github.com/maxpou-slides/vue-workshop-app)
+  * [Workshop final app ()](http://slides.maxpou.fr/vue-workshop-app/)
 
 
 ## Topics
@@ -57,3 +59,10 @@ For this workshop we will learn about Vue.js. Don't worry if you are a beginner,
   * HTTP (with [axios](https://github.com/mzabriskie/axios))
   * Router (with [vue-router](https://router.vuejs.org/en/))
   * State Management (with [Vuex](https://vuex.vuejs.org/en/))
+
+
+## Slides installation
+
+```bash
+$ git clone https://github.com/maxpou-slides/vuejs-training --recursive
+```
