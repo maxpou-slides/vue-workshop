@@ -10,9 +10,9 @@ For this workshop we will learn about Vue.js. Don't worry if you are a beginner,
 
 * [Slides](http://slides.maxpou.fr/vue-workshop/) (source: TODO)
 * Workshop
-  * [Instructions ()](http://slides.maxpou.fr/vue-workshop/_book/)
+  * [Instructions](http://slides.maxpou.fr/vue-workshop/_book/)
   * [Workshop app repository (github.com/maxpou-slides/vue-workshop-app)](https://github.com/maxpou-slides/vue-workshop-app)
-  * [Workshop final app ()](http://slides.maxpou.fr/vue-workshop-app/)
+  * [Workshop final app](http://slides.maxpou.fr/vue-workshop-app/)
 
 
 ## Topics
