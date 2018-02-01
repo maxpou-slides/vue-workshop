@@ -12,7 +12,7 @@ Here's how to pass properties between 2 components parent-child where TodoList r
 
 * TodoList.vue
 
-    ```
+    ```html
     <template>
       <div class="ui container">
         <div class="ui todos" v-for="todo in todos" :key="question.question_id">
@@ -43,7 +43,7 @@ Here's how to pass properties between 2 components parent-child where TodoList r
 
 * TodoListItem.vue
 
-    ```
+    ```html
     <template>
       <p>{{ todo.content }}</p>
     </template>

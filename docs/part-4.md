@@ -4,6 +4,7 @@
 
 1. Create a `AnsweredQuestion.vue` component with the following content:
   ```html
+  {% raw %}
   <template>
     <div class="ui container">
       <div class="ui items">
@@ -85,6 +86,7 @@
     font-size: 85%;
   }
   </style>
+  {% endraw %}
   ```
 
 2. Don't only copy / paste the previous code, but try to understand it.
