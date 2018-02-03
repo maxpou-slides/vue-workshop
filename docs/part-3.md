@@ -20,7 +20,7 @@ export default {
 }
 ```
 
-## Step 2: switch from static JSON file to HTTP GET
+## Step 2: from static JSON file to HTTP GET
 
 1. Install axios: `npm i axios`
 2. Create a environment variable API_URL in the `config/prod.env.js` like the following `API_URL: '"https://api.stackexchange.com/2.2/"'`

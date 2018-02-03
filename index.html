@@ -240,7 +240,7 @@ var app = new Vue({
       <h4 class="fragment" data-fragment-index="1">Example:</h4>
       <div id="vue-model" class="fragment" data-fragment-index="1">
         <input v-model="message" placeholder="edit me">
-        <p>Message: <span style="color: #42b983;">{{ message }}</span></p>
+        <p>Message: <span style="color: #963692;">{{ message }}</span></p>
       </div>
       <script>
 var vueModel = new Vue({
@@ -254,11 +254,18 @@ var vueModel = new Vue({
     </section>
     <section>
       <h2>Workshop #1</h2>
+      <p><a href="http://slides.maxpou.fr/vue-workshop/_book/docs/part-1.html"><i class="fa fa-book" aria-hidden="true"></i>  instructions</a></p>
+      <pre data-fragment-index="0"><code data-trim>
+git clone https://github.com/maxpou-slides/vue-workshop-app
+git checkout step-0
+npm install
+npm run dev
+      </code></pre>
     </section>
   </section>
   <section>
     <section>
-      <h2>.vue File</h2>
+      <h2>.vue file</h2>
     </section>
     <section>
       <h2>Separation of concerns</h2>
@@ -366,9 +373,6 @@ export default {
       </ul>
     </section>
     <section>
-      <h2>Installation</h2>
-    </section>
-    <section>
       <h2>Example: Main template</h2>
       <pre><code data-trim class="language-html">
   <div id="app">
@@ -383,16 +387,15 @@ export default {
     <section>
       <h2>Example: JS</h2>
       <pre><code data-trim class="language-js">
+// component declaration
 const Account = { template: '<div>account</div>' }
 const Bookings = { template: '<div>bookings</div>' }
 
-const routes = [
-  { path: '/account', component: Account },
-  { path: '/bookings', component: Bookings }
-]
-
 const router = new VueRouter({
-  routes: routes
+  routes: [
+    { path: '/account', component: Account },
+    { path: '/bookings', component: Bookings }
+  ]
 })
 
 const app = new Vue({
@@ -410,7 +413,7 @@ const app = new Vue({
     </section>
     <section>
       <h2>Why?</h2>
-      <img src="./img/state-management.png" alt="vuex">>
+      <img src="./img/state-management.png" alt="vuex">
     </section>
     <section>
       <img src="./img/vuex.png" alt="vuex">>
