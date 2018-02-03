@@ -8,10 +8,10 @@ For this workshop we will learn about Vue.js. Don't worry if you are a beginner,
 
 ## Links
 
-* [Slides](http://slides.maxpou.fr/vue-workshop/) (source: TODO)
+* [Slides](http://slides.maxpou.fr/vue-workshop/)
 * Workshop
   * [Instructions](http://slides.maxpou.fr/vue-workshop/_book/)
-  * [Workshop app repository (github.com/maxpou-slides/vue-workshop-app)](https://github.com/maxpou-slides/vue-workshop-app)
+  * [Workshop app repository + solutions (github.com/maxpou-slides/vue-workshop-app)](https://github.com/maxpou-slides/vue-workshop-app)
   * [Workshop final app](http://slides.maxpou.fr/vue-workshop-app/)
 
 
@@ -64,5 +64,8 @@ For this workshop we will learn about Vue.js. Don't worry if you are a beginner,
 ## Slides installation
 
 ```bash
+# Don't forget the recursive option to pull reveals
 $ git clone https://github.com/maxpou-slides/vuejs-training --recursive
+# Install&run gitbook
+$ npm i && npm run doc:build
 ```
