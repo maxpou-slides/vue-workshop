@@ -127,3 +127,7 @@
   }
   </script>
   ```
+
+## Solution
+
+* See https://github.com/maxpou-slides/vue-workshop-app/commit/f6cc4e40ea070a88d73f3e5d2303946f62d655fb... or `git checkout step-0`

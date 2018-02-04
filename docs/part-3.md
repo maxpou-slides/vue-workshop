@@ -48,3 +48,8 @@ export default {
   }
   ```
 Now the component's `question` default property should be an empty array.
+
+
+## Solution
+
+See: https://github.com/maxpou-slides/vue-workshop-app/compare/step-2...step-3

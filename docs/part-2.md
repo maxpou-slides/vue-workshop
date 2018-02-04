@@ -59,3 +59,7 @@ Here's how to pass properties between 2 components parent-child where TodoList r
     }
     </script>
     ```
+
+## Solution
+
+See: https://github.com/maxpou-slides/vue-workshop-app/compare/step-1...step-2

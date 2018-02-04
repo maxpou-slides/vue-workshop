@@ -57,14 +57,14 @@ For this workshop we will learn about Vue.js. Don't worry if you are a beginner,
   * lifecycle
 * Vue ecosystem
   * HTTP (with [axios](https://github.com/mzabriskie/axios))
-  * Router (with [vue-router](https://router.vuejs.org/en/))
+  * Routing (with [vue-router](https://router.vuejs.org/en/))
   * State Management (with [Vuex](https://vuex.vuejs.org/en/))
 
 
 ## Slides installation
 
 ```bash
-# Don't forget the recursive option to pull reveals
+# Don't forget the --recursive option to pull reveal.js
 $ git clone https://github.com/maxpou-slides/vuejs-training --recursive
 # Install&run gitbook
 $ npm i && npm run doc:build
