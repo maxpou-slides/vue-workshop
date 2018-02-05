@@ -15,3 +15,4 @@
 * [Part 2: Component everywhere!](./part-2.md)
 * [Part 3: HTTP](./part-3.md)
 * [Part 4: Router](./part-4.md)
+* [Conclusion](./conclusion.md)

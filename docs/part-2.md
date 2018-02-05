@@ -10,19 +10,19 @@
 
 Here's how to pass properties between 2 components parent-child where TodoList represent the parent and TodoListItem represent the childrens.
 
-* TodoList.vue
+* QuestionList.vue
 
     ```html
     <template>
       <div class="ui container">
-        <div class="ui todos" v-for="todo in todos" :key="question.question_id">
-          <todo-list-item :todo="todo" />
+        <div class="ui comments" v-for="question in questions" :key="question.question_id">
+          <question-list-item :question="question" />
         </div>
       </div>
     </template>
 
     <script>
-    import TodoList from './QuestionListItem'
+    import QuestionListItem from './QuestionListItem'
 
     export default {
       name: 'QuestionList',
@@ -41,16 +41,16 @@ Here's how to pass properties between 2 components parent-child where TodoList r
     ```
 
 
-* TodoListItem.vue
+* QuestionListItem.vue
 
     ```html
     <template>
-      <p>{{ todo.content }}</p>
+      <!-- content -->
     </template>
 
     <script>
     export default {
-      name: 'TodoListItem',
+      name: 'QuestionListItem',
       props: {
         todo: {
           type: Object
