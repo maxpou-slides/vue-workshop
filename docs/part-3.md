@@ -49,6 +49,13 @@ export default {
   ```
 Now the component's `question` default property should be an empty array.
 
+**Note:** Vue.js also support [async functions](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Instructions/async_function)!
+  ```js
+  async mounted () {
+    const questionsResponse = await searchQuestions('vue')
+    this.questions = questionsResponse.data.items
+  }
+  ```
 
 ## Solution
 

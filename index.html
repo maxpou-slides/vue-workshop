@@ -151,8 +151,8 @@ var counterDemo = new Vue({
       <pre class="fragment"><code data-trim>
 <div id="app">
   <div>
-    <h2>{{ hostel.name }}</h2>
-    <a v-if="hostel.availability">Book now</a>
+    <h2>{{ question.title }}</h2>
+    <a v-if="question.answered">View answers</a>
   </div>
 </div>
       </code></pre>
@@ -160,9 +160,9 @@ var counterDemo = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    hostel: {
-      name: 'Happy Hostel',
-      availability: true
+    question: {
+      title: 'How to pair socks from a pile efficiently?',
+      answered: true
     }
   }
 })
@@ -173,9 +173,9 @@ var app = new Vue({
       <pre><code data-trim>
 <div id="app">
   <div>
-    <h2>{{ hostel.name }}</h2>
-    <a v-if="hostel.availability">Book now</a>
-    <a v-else disabled>Too late!</a>
+    <h2>{{ question.title }}</h2>
+    <a v-if="question.answered">View answers</a>
+    <a v-else disabled>No answers yet!</a>
   </div>
 </div>
       </code></pre>
@@ -183,9 +183,9 @@ var app = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    hostel: {
-      name: 'Happy Hostel',
-      availability: true
+    question: {
+      title: 'How to pair socks from a pile efficiently?',
+      answered: true
     }
   }
 })
@@ -195,9 +195,9 @@ var app = new Vue({
       <h2>Conditional rendering: v-show</h2>
       <pre class="fragment"><code data-trim>
 <div id="app">
-  <div v-show="hostel.isActive">
-    <h2>{{ hostel.name }}</h2>
-    <a v-if="hostel.availability">Book now</a>
+  <div v-show="question.isActive">
+    <h2>{{ question.title }}</h2>
+    <a v-if="question.answered">View answers</a>
   </div>
 </div>
       </code></pre>
@@ -205,9 +205,9 @@ var app = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    hostel: {
-      name: 'Happy Hostel',
-      availability: true,
+    question: {
+      title: 'How to pair socks from a pile efficiently?',
+      answered: true
       isActive: true
     }
   }
@@ -218,8 +218,8 @@ var app = new Vue({
       <h2>Loops: v-for</h2>
       <pre class="fragment"><code data-trim>
 <div id="app">
-  <div v-for="hostel in hostels">
-    <h2>{{ hostel.name }}</h2>
+  <div v-for="question in questions">
+    <h2>{{ question.title }}</h2>
   </div>
 </div>
       </code></pre>
@@ -227,10 +227,10 @@ var app = new Vue({
 var app = new Vue({
   el: '#app',
   data: {
-    hostels: [
-      { name: 'Happy Hostel' },
-      { name: 'Awesome Hostel' },
-      { name: 'Another Hostel' }
+    questions: [
+      { title: 'Why does ++[[]][+[]]+[+[]] return the string “10”?' },
+      { title: 'What's the difference between JavaScript and Java?' },
+      { title: 'Is it possible to apply CSS to half of a character?' }
     ]
   }
 })
@@ -332,29 +332,29 @@ npm run dev
     <section>
       <h2>Example (1/2)</h2>
       <pre><code data-trim>
-// src/api/hostel.js
+// src/api/questions.js
 import axios from 'axios'
 
-export function findAll (limit = 25) {
-  return axios.get('hostels/?limit=' + limit)
-              .then(response => response.data)
+export async function findAll (limit = 25) {
+  const response = await axios.get('questions/?limit=' + limit)
+  return response.data
 }
       </code></pre>
     </section>
     <section>
       <h2>Example (2/2)</h2>
       <pre><code data-trim class="language-js">
-import * as hostelApi from '../api/hostels'
+import * as questionsApi from '../api/questions'
 
 export default {
   data () {
     return {
-      hostels: []
+      questions: []
     }
   },
   created () {
-    hostelApi.findAll().then((data) => {
-      this.hostels = data
+    questionsApi.findAll().then((data) => {
+      this.questions = data
     })
   }
 }
@@ -401,12 +401,12 @@ export default {
       <pre><code data-trim class="language-js">
 // component declaration
 const Account = { template: '<div>account</div>' }
-const Bookings = { template: '<div>bookings</div>' }
+const QuestionList = { template: '<div>question list</div>' }
 
 const router = new VueRouter({
   routes: [
     { path: '/account', component: Account },
-    { path: '/bookings', component: Bookings }
+    { path: '/questions', component: QuestionList }
   ]
 })
 
@@ -429,20 +429,22 @@ const app = new Vue({
       <img src="./img/state-management.png" alt="vuex">
     </section>
     <section>
-      <img src="./img/vuex.png" alt="vuex">>
+      <img src="./img/vuex.png" alt="vuex">
     </section>
     <section>
       <h2>Devtools</h2>
-      <img src="./img/devtools-vuex.gif" alt="Devtools and vuex">
+      <img src="./img/devtools-vuex.gif" alt="Devtools and vuex" style="width: 80%;">
     </section>
   </section>
   <section>
     <section>
       <h2>Want to learn more?</h2>
       <ul>
-        <li><a href="https://vuejs.org/"><i class="fa fa-globe" aria-hidden="true"></i>  vuejs.org</a></li>
+        <li><a href="https://vuejs.org"><i class="fa fa-globe" aria-hidden="true"></i>  vuejs.org</a></li>
         <li><a href="https://github.com/vuejs/awesome-vue"><i class="fa fa-github" aria-hidden="true"></i> awesome-vue</a></li>
-        <li><a href="https://github.com/maxpou-slides/vuejs-training"><i class="fa fa-github" aria-hidden="true"></i> maxpou-slides/vuejs-training</a></li>
+        <li><a href="https://github.com/maxpou-slides/vuejs-training"><i class="fa fa-github" aria-hidden="true"></i> maxpou-slides/vuejs-training 😎</a></li>
+        <li><a href="https://nuxtjs.org"><i class="fa fa-github" aria-hidden="true"></i> Nuxt - Universal Vue.js Applications</a></li>
+        <li><a href="https://weex.apache.org"><i class="fa fa-github" aria-hidden="true"></i> Weex - Native apps using Vue.js</a></li>
       </ul>
     </section>
     <section>

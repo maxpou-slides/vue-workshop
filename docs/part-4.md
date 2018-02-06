@@ -118,10 +118,10 @@
 
 ## Routing
 
-1. Now in the router (router/index.js), add a new route for this view. Variables in the path looks like this: `path: 'products/:id'`
+1. Now in the router (router/index.js), add a new route for this view. Variables in the path looks like this: `path: 'questions/:id'`
 2. Now, we have to link the two views. In `QuestionListItem.vue`, we have to adapt the `View answers` by using the [`<router-link>`](https://router.vuejs.org/en/api/router-link.html).
   ```html
-  <router-link :to="{ name: 'Product', params: { id: 42 }}">View product</router-link>
+  <router-link :to="{ name: 'RouteName', params: { paramName: 42 }}">I'm a link</router-link>
   ```
 
 🎉 Tadaaa, you are now able to navigate between the question list and the answers!
