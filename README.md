@@ -6,6 +6,8 @@ In a nutshell: Vue.js (pronounced “view”) could be the 'V' in an MV* pattern
 
 For this workshop we will learn about Vue.js. Don't worry if you are a beginner, the tutorial can be followed by people new too!
 
+**Warning**: this workshop uses the **StackOverflow API** which is subject to [Rate Limit (10.000 requests per IP per day)](https://api.stackexchange.com/docs/throttle). This limit can be reach easyly with the Webpack's Hot-reload module.
+
 ## Links
 
 * [Slides](http://slides.maxpou.fr/vue-workshop/)
