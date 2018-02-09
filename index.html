@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vue.js workshop</title>
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/pikestreet.css">
+<link rel="stylesheet" href="css/github.css">
+<!-- Printing and PDF exports -->
+<script>
+var link  = document.createElement( 'link' );
+link.rel  = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+document.getElementsByTagName('head')[0].appendChild(link);
+</script>
+<script src="https://unpkg.com/vue"></script>  
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+  <section>
+    <section>
+      <h2>Vue.js workshop</h2>
+      <h3><i>/vjuː/</i></h3>
+      <p class="me-link">
+        Maxence Poutord - <a href="https://twitter.com/_maxpou"><i class="fa fa-twitter"></i> @_maxpou</a>
+      </p>
+      <p class="me-link">
+        Ignacio Velazquez - <a href="https://twitter.com/nass600"><i class="fa fa-twitter"></i> @nass600</a>
+      </p>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Why Vue.js</h2>
+      <ul>
+        <li>Progressive Framework</li>
+        <li>Declarative/reactive rendering</li>
+        <li>Ludicrously straightforward syntax</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Progressive Framework</h2>
+      <p>Rewriting a whole existing app from scratch is <b>risky</b> and <b>expensive</b></p>
+    </section>
+    <section>
+      <h2>Declarative rendering</h2>
+      <h4>Tell <b>WHAT</b> you render instead of <b>HOW</b></h4>
+      <img src="./img/complex-simple.gif" alt="simple">
+    </section>
+    <section>
+      <div id="slide-vue">
+
+        <h2 v-if="print">
+          {{ title }}
+        </h2>
+      </div>
+
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <h2 v-if="print">
+    {{ title }}
+  </h2>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+const slide = new Vue({
+  el: '#app',
+  data: {
+    print: true,
+    title: 'Ludicrously straightforward syntax!'
+  }
+})
+      </code></pre>
+      <script>
+const slide = new Vue({
+  el: '#slide-vue',
+  name: 'slide',
+  data: {
+    print: true,
+    title: 'Ludicrously straightforward syntax!'
+  }
+})
+      </script>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>DevTools</h2>
+      <img src="./img/devtool.png" alt="declarative rendering" style="width: 60%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-1.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-2.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-3.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-4.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section data-transition="none">
+      <h2>Virtual DOM</h2>
+      <img src="./img/virtual-dom-5.png" alt="virtual DOM" style="width: 80%;">
+    </section>
+    <section id="virtualdom">
+      <h2>Virtual DOM: Example</h2>
+      <div id="counterDemo">
+        <p>Counter: <span>{{ counter }}</span></p>
+        <p><i>(open Browser DevTools)</i></p>
+      </div>
+      <script>
+window.onload = () => {
+  Reveal.addEventListener('slidechanged', (event) => {
+    if (event.currentSlide.id === 'virtualdom') {
+      counterDemo.counter = 0
+    }
+  })
+}
+
+var counterDemo = new Vue({
+  el: '#counterDemo',
+  name: 'counter',
+  data: {
+    counter: 0
+  },
+  created () {
+    setInterval(() => {
+      this.counter++
+    }, 1000)
+  }
+})
+      </script>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>The Vue Syntax</h2>
+    </section>
+    <section>
+      <h2>Conditional rendering: v-if</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div>
+    <h2>{{ question.title }}</h2>
+    <a v-if="question.answered">View answers</a>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    question: {
+      title: 'How to pair socks from a pile efficiently?',
+      answered: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Conditional rendering: v-else</h2>
+      <pre><code data-trim>
+<div id="app">
+  <div>
+    <h2>{{ question.title }}</h2>
+    <a v-if="question.answered">View answers</a>
+    <a v-else disabled>No answers yet!</a>
+  </div>
+</div>
+      </code></pre>
+      <pre><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    question: {
+      title: 'How to pair socks from a pile efficiently?',
+      answered: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+  <section>
+      <h2>Conditional rendering: v-show</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div v-show="question.isActive">
+    <h2>{{ question.title }}</h2>
+    <a v-if="question.answered">View answers</a>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    question: {
+      title: 'How to pair socks from a pile efficiently?',
+      answered: true
+      isActive: true
+    }
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Loops: v-for</h2>
+      <pre class="fragment"><code data-trim>
+<div id="app">
+  <div v-for="question in questions">
+    <h2>{{ question.title }}</h2>
+  </div>
+</div>
+      </code></pre>
+      <pre class="fragment"><code data-trim>
+var app = new Vue({
+  el: '#app',
+  data: {
+    questions: [
+      { title: 'Why does ++[[]][+[]]+[+[]] return the string “10”?' },
+      { title: 'What's the difference between JavaScript and Java?' },
+      { title: 'Is it possible to apply CSS to half of a character?' }
+    ]
+  }
+})
+      </code></pre>
+    </section>
+    <section>
+      <h2>Form Input Bindings: v-model</h2>
+      <pre class="fragment" data-fragment-index="0"><code data-trim>
+<input v-model="message" placeholder="edit me">
+<p>Message: {{ message }}</p>
+      </code></pre>
+
+      <h4 class="fragment" data-fragment-index="1">Example:</h4>
+      <div id="vue-model" class="fragment" data-fragment-index="1">
+        <input v-model="message" placeholder="edit me">
+        <p>Message: <span style="color: #963692;">{{ message }}</span></p>
+      </div>
+      <script>
+var vueModel = new Vue({
+  el: '#vue-model',
+  name: 'v-model',
+  data: {
+    message: 'Long live v-model!'
+  }
+})
+      </script>
+    </section>
+    <section>
+      <h2>Workshop #1</h2>
+      <p><a href="http://slides.maxpou.fr/vue-workshop/_book/docs/part-1.html"><i class="fa fa-book" aria-hidden="true"></i>  instructions</a></p>
+      <pre data-fragment-index="0"><code data-trim>
+git clone https://github.com/maxpou-slides/vue-workshop-app
+git checkout step-0
+npm install
+npm run dev
+      </code></pre>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>.vue file</h2>
+    </section>
+    <section>
+      <img src="./img/vue-file.png" alt="vue file" style="width: 60%;">
+    </section>
+    <section>
+      <h2>Separation of concerns</h2>
+      <img src="./img/separation-concerns-1.png" alt="Separation of concerns" class="fragment" style="width: 45%;">
+      <img src="./img/separation-concerns-2.png" alt="Separation of concerns" class="fragment" style="width: 40%;">
+      <p class="fragment">⚠️ SoC is not about file separation!</p>
+    </section>
+    <section>
+      <h2>What's the magic behind</h2>
+      <img src="./img/webpack.png" alt="vue file" style="width: 50%;background-color: aliceblue;padding: 10px;">
+    </section>
+    <section>
+      <h2>Benefit: Hot reload ❤️</h2>
+      <img src="./img/vue-hot.gif">
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>A world of components</h2>
+      <img src="https://media1.giphy.com/media/l0JMrPWRQkTeg3jjO/giphy.gif">
+    </section>
+    <section>
+      <h2>What is a component?</h2>
+      <img src="./img/components.png" alt="components">
+    </section>
+    <section>
+      <h2>Communication between components</h2>
+      <img src="./img/communication.png">
+    </section>
+    <section>
+      <h2>Communication between components</h2>
+      <img src="./img/communication-2.png">
+    </section>
+    <section>
+      <h2>Workshop #2</h2>
+      <p><a href="http://slides.maxpou.fr/vue-workshop/_book/docs/part-2.html"><i class="fa fa-book" aria-hidden="true"></i>  instructions</a></p>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>HTTP</h2>
+    </section>
+    <section>
+      <h2>Let's find something cool</h2>
+      <img src="./img/google-ajax.png" alt="google">
+    </section>
+    <section>
+      <h2>Think JavaScript!</h2>
+      <img src="./img/google-ajax-2.png" alt="think javascript!">
+    </section>
+    <section>
+      <h2>Axios</h2>
+      <h3><a href="https://github.com/axios/axios"><i class="fa fa-github" aria-hidden="true"></i> axios/axios</a></h3>  
+    </section>
+    <section>
+      <h2>Example (1/2)</h2>
+      <pre><code data-trim>
+// src/api/questions.js
+import axios from 'axios'
+
+export async function findAll (limit = 25) {
+  const response = await axios.get('questions/?limit=' + limit)
+  return response.data
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2>Example (2/2)</h2>
+      <pre><code data-trim class="language-js">
+import * as questionsApi from '../api/questions'
+
+export default {
+  data () {
+    return {
+      questions: []
+    }
+  },
+  created () {
+    questionsApi.findAll().then((data) => {
+      this.questions = data
+    })
+  }
+}
+      </code></pre>
+    </section>
+    <section>
+      <h2><code>created()</code>?</h2>
+      <img src="./img/lifecycle.png" alt="Vue.js lifecycle" style="background-color: #FFF;">
+    </section>
+    <section>
+      <h2>Workshop #3</h2>
+      <p><a href="http://slides.maxpou.fr/vue-workshop/_book/docs/part-3.html"><i class="fa fa-book" aria-hidden="true"></i>  instructions</a></p>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Routing</h2>
+      <h3><a href="https://router.vuejs.org/en/"><i class="fa fa-globe" aria-hidden="true"></i> vue-router</a></h3>
+    </section>
+    <section>
+      <h2>Vue-Router</h2>
+      <ul>
+        <li>Simple to use</li>
+        <li>Allow nested routes</li>
+        <li>Window.history</li>
+        <li>Support SSR - Server Side Rendering</li>
+        <li>...</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Example: Main template</h2>
+      <pre><code data-trim class="language-html">
+  <div id="app">
+    <p>
+        <router-link to="/account">Go to my account</router-link>
+        <router-link to="/bookings">Go to booking</router-link>
+    </p>
+    <router-view></router-view>
+  </div>
+        </code></pre>
+    </section>
+    <section>
+      <h2>Example: JS</h2>
+      <pre><code data-trim class="language-js">
+// component declaration
+const Account = { template: '<div>account</div>' }
+const QuestionList = { template: '<div>question list</div>' }
+
+const router = new VueRouter({
+  routes: [
+    { path: '/account', component: Account },
+    { path: '/questions', component: QuestionList }
+  ]
+})
+
+const app = new Vue({
+  router
+}).$mount('#app')
+      </code></pre>
+    </section>
+    <section>
+      <h2>Workshop #4</h2>
+      <p><a href="http://slides.maxpou.fr/vue-workshop/_book/docs/part-4.html"><i class="fa fa-book" aria-hidden="true"></i>  instructions</a></p>
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>State management with Vuex</h2>
+    </section>
+    <section>
+      <h2>Why?</h2>
+      <img src="./img/state-management.png" alt="vuex">
+    </section>
+    <section>
+      <img src="./img/vuex.png" alt="vuex">
+    </section>
+    <section>
+      <h2>Devtools</h2>
+      <img src="./img/devtools-vuex.gif" alt="Devtools and vuex" style="width: 80%;">
+    </section>
+  </section>
+  <section>
+    <section>
+      <h2>Want to learn more?</h2>
+      <ul>
+        <li><a href="https://vuejs.org"><i class="fa fa-globe" aria-hidden="true"></i>  vuejs.org</a></li>
+        <li><a href="https://github.com/vuejs/awesome-vue"><i class="fa fa-github" aria-hidden="true"></i> awesome-vue</a></li>
+        <li><a href="https://github.com/maxpou-slides/vuejs-training"><i class="fa fa-github" aria-hidden="true"></i> maxpou-slides/vuejs-training 😎</a></li>
+        <li><a href="https://nuxtjs.org"><i class="fa fa-github" aria-hidden="true"></i> Nuxt - Universal Vue.js Applications</a></li>
+        <li><a href="https://weex.apache.org"><i class="fa fa-github" aria-hidden="true"></i> Weex - Native apps using Vue.js</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2>Thank you.</h2>
+      <p class="me-link">
+        Maxence Poutord - <a href="https://twitter.com/_maxpou"><i class="fa fa-twitter"></i> @_maxpou</a>
+      </p>
+      <p class="me-link">
+        Ignacio Velazquez - <a href="https://twitter.com/nass600"><i class="fa fa-twitter"></i> @nass600</a>
+      </p>
+    </section>
+  </section>
+</div>
+</div>
+<script src="reveal.js/lib/js/head.min.js"></script>
+<script src="reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available at:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+  controls: false,
+  progress: true,
+  slideNumber: true,
+  history: true,
+
+  transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+// Optional reveal.js plugins
+dependencies: [
+  { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+  { src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+  { src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+  { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+  { src: 'reveal.js/plugin/notes/notes.js', async: true }
+]
+});
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-67868977-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<style>
+body {
+  background: #41B883;
+  background-color: #41B883; 
+}
+
+.reveal section img {
+  margin: 0; background:none; border: 0; box-shadow: none; 
+}
+
+.reveal pre code.hljs::selection,
+.reveal pre span::selection {
+  background: #9CEAC7; /* WebKit/Blink Browsers */
+}
+
+.reveal pre code.hljs::-moz-selection,
+.reveal pre span::-moz-selection {
+  background: #9CEAC7; /* Gecko Browsers */
+}
+
+li.space {
+  margin-top: 15px;
+}
+
+input {
+  font-size: large;
+  width: 30%;
+  margin: 0;
+  max-width: 100%;
+  padding: .67857143em 1em;
+  background: #fff;
+  border: 1px solid rgba(34,36,38,.15);
+  color: rgba(0,0,0,.87);
+  border-radius: .28571429rem;
+}
+
+input:focus {
+  border-color: #85b7d9;
+  background: #fff;
+  color: rgba(0,0,0,.8);
+  box-shadow: none;
+}
+
+p.me-link {
+  margin: 0;
+}
+p.me-link:first-of-type {
+  margin-top: 70px;
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,346 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Part 1: Playing with Vue Syntax · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="part-2.html" />
+    
+    
+    <link rel="prev" href="part-0.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Workshop Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="part-0.html">
+            
+                <a href="part-0.html">
+            
+                    
+                    Part 0: Scaffolding
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="part-1.html">
+            
+                <a href="part-1.html">
+            
+                    
+                    Part 1: Playing with Vue Syntax
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="part-2.html">
+            
+                <a href="part-2.html">
+            
+                    
+                    Part 2: Component everywhere!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="part-3.html">
+            
+                <a href="part-3.html">
+            
+                    
+                    Part 3: HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="part-4.html">
+            
+                <a href="part-4.html">
+            
+                    
+                    Part 4: Routing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="conclusion.html">
+            
+                <a href="conclusion.html">
+            
+                    
+                    Conclusion
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Part 1: Playing with Vue Syntax</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="part-1-playing-with-vuejs-syntax">Part 1: Playing with Vue.js syntax</h1>
+<h2 id="step-1-print-a-single-question">Step 1: print a single question</h2>
+<p>You should be able to see a first question.</p>
+<ul>
+<li>bind each values to the DOM:<ul>
+<li>For text data binding, use the curly braces (aka mustaches) syntax <code>{{ object.property }}</code></li>
+<li>We can also put expression inside Mustaches like the following <code>{{ new Date(object.date*1000).toLocaleDateString() }}</code></li>
+<li>Mustaches cannot be used inside HTML attributes. Instead use a v-bind directive: <code>v-bind:href=&quot;obj.mylink&quot;</code> or the shorthand: <code>:href=&quot;obj.mylink&quot;</code></li>
+<li>Only show the view answer button if <code>is_answered</code> is set to true (use <a href="https://vuejs.org/v2/guide/conditional.html#v-if" target="_blank"><code>v-if</code></a>)</li>
+<li>to print tags, you have to use <a href="https://vuejs.org/v2/guide/list.html#Mapping-an-Array-to-Elements-with-v-for" target="_blank"><code>v-for</code></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="step-2-print-a-list-of-questions">Step 2: print a list of questions</h2>
+<p>Once everything is set, use the second dataset as datas (multiple instead of single)</p>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> questions <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../api/stackoverflow-search-multiple.json&apos;</span>
+<span class="hljs-comment">// ...</span>
+data () {
+  <span class="hljs-keyword">return</span> {
+    questions: questions.items
+  }
+}
+</code></pre>
+<p>You should use the <code>v-for</code> directive to loop the questions.</p>
+<h2 id="solution">Solution</h2>
+<p>See: <a href="https://github.com/maxpou-slides/vue-workshop-app/compare/step-0...step-1" target="_blank">https://github.com/maxpou-slides/vue-workshop-app/compare/step-0...step-1</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="part-0.html" class="navigation navigation-prev " aria-label="Previous page: Part 0: Scaffolding">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="part-2.html" class="navigation navigation-next " aria-label="Next page: Part 2: Component everywhere!">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Part 1: Playing with Vue Syntax","level":"1.4","depth":1,"next":{"title":"Part 2: Component everywhere!","level":"1.5","depth":1,"path":"docs/part-2.md","ref":"./docs/part-2.md","articles":[]},"previous":{"title":"Part 0: Scaffolding","level":"1.3","depth":1,"path":"docs/part-0.md","ref":"./docs/part-0.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/part-1.md","mtime":"2018-02-09T11:22:34.752Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-02-09T11:23:36.725Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

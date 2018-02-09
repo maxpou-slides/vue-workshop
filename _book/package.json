@@ -1,0 +1,19 @@
+{
+  "name": "vue-workshop",
+  "version": "1.0.0",
+  "description": "Vue.js workshop",
+  "main": "reveal.js",
+  "scripts": {
+    "test": "exit 0",
+    "doc:build": "gitbook build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxpou-slides/vuejs-workshop.git"
+  },
+  "author": "Maxence POUTORD <maxence.poutord@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
